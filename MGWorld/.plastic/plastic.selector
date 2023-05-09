@@ -1,0 +1,4 @@
+repository "MGWorld@tlxd@cloud.cn"
+  path "/"
+    br "/main"
+    co "/main"
