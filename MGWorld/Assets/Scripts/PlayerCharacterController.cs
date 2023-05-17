@@ -28,7 +28,8 @@ namespace MyGame
         }
 
         void OnTriggerEnter(Collider collider) {
-            if (collider.gameObject.tag == "NPC") {
+            if (collider.gameObject.tag == "NPC")
+            {
                 ChatEvent evt = Events.ChatEvent;
                 evt.Name = collider.gameObject.name;
                 EventManager.Broadcast(evt);
@@ -36,8 +37,10 @@ namespace MyGame
         }
 
         void OnTriggerExit(Collider collider) {
-            if (collider.gameObject.tag == "NPC") {
+            if (collider.gameObject.tag == "NPC")
+            {
                 ChatOverEvent evt = Events.ChatOverEvent;
+                evt.Name = collider.gameObject.name;
                 EventManager.Broadcast(evt);
             }
         }

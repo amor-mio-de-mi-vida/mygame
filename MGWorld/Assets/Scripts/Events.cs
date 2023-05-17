@@ -18,5 +18,6 @@ namespace MyGame
 
     public class ChatOverEvent : GameEvent
     {
+        public string Name;
     }
 }

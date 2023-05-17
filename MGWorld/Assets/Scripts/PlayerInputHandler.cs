@@ -255,5 +255,15 @@ namespace MyGame
 
             return 0f;
         }
+
+        public bool GetChat()
+        {
+            if (CanProcessInput())
+            {
+                return Input.GetButtonDown(GameConstants.k_ButtonChat);
+            }
+
+            return false;
+        }
     }
 }
