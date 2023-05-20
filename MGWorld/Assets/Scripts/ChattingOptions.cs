@@ -13,7 +13,8 @@ namespace MyGame
         string m_Name;
         PlayerInputHandler m_InputHandler;
         VisualElement m_RootVisualElement;
-        Label m_Dialog_Name;
+        Button m_Option1;
+        Button m_Option2;
         // Start is called before the first frame update
         void Awake()
         {
@@ -22,6 +23,11 @@ namespace MyGame
             m_InputHandler = GetComponent<PlayerInputHandler>();
             EventManager.AddListener<ChatEvent>(OnChat);
             EventManager.AddListener<ChatOverEvent>(OnChatOver);
+
+            m_Option1 = m_RootVisualElement.Query<Button>("Option1");
+            m_Option2 = m_RootVisualElement.Query<Button>("Option2");
+            m_Option1.RegisterCallback<ClickEvent>(ClickOption1);
+            m_Option2.RegisterCallback<ClickEvent>(ClickOption2);
         }
 
         void start()
@@ -70,6 +76,16 @@ namespace MyGame
         {
             EventManager.RemoveListener<ChatEvent>(OnChat);
             EventManager.RemoveListener<ChatOverEvent>(OnChatOver);
+        }
+
+        private void ClickOption1(ClickEvent evt)
+        {
+            Debug.Log("Option1 was clicked!");
+        }
+
+        private void ClickOption2(ClickEvent evt)
+        {
+            Debug.Log("Option2 was clicked!");
         }
     }
 }

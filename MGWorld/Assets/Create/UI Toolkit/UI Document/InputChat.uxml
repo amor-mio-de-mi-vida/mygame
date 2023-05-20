@@ -4,7 +4,7 @@
     <ui:VisualElement style="height: 10%; flex-direction: row;">
         <ui:VisualElement style="width: 10%;" />
         <ui:VisualElement style="width: 80%;">
-            <ui:TextField picking-mode="Ignore" label="Text Field" value="filler text" text="filler text" class="chat" />
+            <ui:TextField picking-mode="Ignore" label="赫鲁：" value="filler text" name="Input" class="chat" />
         </ui:VisualElement>
         <ui:VisualElement style="width: auto; flex-grow: 1;" />
     </ui:VisualElement>

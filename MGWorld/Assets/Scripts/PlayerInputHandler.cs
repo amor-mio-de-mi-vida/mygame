@@ -24,8 +24,8 @@ namespace MyGame
         void Start()
         {
             m_PlayerCharacterController = GetComponent<PlayerCharacterController>();
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
         }
 
         void LateUpdate()

@@ -13,7 +13,7 @@ namespace MyGame
         string m_Name;
         PlayerInputHandler m_InputHandler;
         VisualElement m_RootVisualElement;
-        Label m_Dialog_Name;
+        TextField m_Input;
         // Start is called before the first frame update
         void Awake()
         {
@@ -22,6 +22,9 @@ namespace MyGame
             m_InputHandler = GetComponent<PlayerInputHandler>();
             EventManager.AddListener<ChatEvent>(OnChat);
             EventManager.AddListener<ChatOverEvent>(OnChatOver);
+
+            m_Input = m_RootVisualElement.Query<TextField>("Input");
+            m_Input.RegisterCallback<InputEvent>(Input);
         }
 
         void start()
@@ -70,6 +73,11 @@ namespace MyGame
         {
             EventManager.RemoveListener<ChatEvent>(OnChat);
             EventManager.RemoveListener<ChatOverEvent>(OnChatOver);
+        }
+
+        private void Input(InputEvent evt)
+        {
+            Debug.Log("from " + evt.previousData + " to " + evt.newData);
         }
     }
 }
