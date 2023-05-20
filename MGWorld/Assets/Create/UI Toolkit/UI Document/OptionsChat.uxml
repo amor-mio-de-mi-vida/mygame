@@ -1,15 +1,16 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement style="height: 30%;" />
-    <ui:VisualElement style="height: 10%; flex-direction: row;">
+    <Style src="project://database/Assets/UI%20Toolkit/ChattingOptions.uss?fileID=7433441132597879392&amp;guid=332b3a96cd4ddc444a814afe54fd57b8&amp;type=3#ChattingOptions" />
+    <ui:VisualElement name="VisualElement" style="height: 10%; flex-direction: row;">
         <ui:VisualElement style="width: 10%;" />
         <ui:VisualElement style="width: 35%;">
-            <ui:Button text="喵喵喵" display-tooltip-when-elided="true" style="font-size: 40px; padding-top: 20px; padding-bottom: 20px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; opacity: 0.88; background-color: rgb(125, 122, 128); color: rgb(255, 236, 153);" />
+            <ui:Button text="坤哥坤哥" display-tooltip-when-elided="true" name="Option1" class="ChattingOptions" style="font-size: 40px; padding-top: 20px; padding-bottom: 20px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; opacity: 0.88; background-color: rgb(125, 122, 128); color: rgb(255, 236, 153); transition-property: all; transition-duration: 0s; transition-timing-function: ease; transition-delay: 0s;" />
         </ui:VisualElement>
-        <ui:VisualElement style="width: 10%;" />
-        <ui:VisualElement style="width: 35%;">
-            <ui:Button text="喵喵喵" display-tooltip-when-elided="true" style="font-size: 40px; padding-top: 20px; padding-bottom: 20px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; opacity: 0.88; background-color: rgb(125, 122, 128); color: rgb(255, 236, 153);" />
+        <ui:VisualElement name="VisualElement" style="width: 10%;" />
+        <ui:VisualElement name="VisualElement" style="width: 35%;">
+            <ui:Button text="恺哥恺哥" display-tooltip-when-elided="true" name="Option2" class="ChattingOptions" style="font-size: 40px; padding-top: 20px; padding-bottom: 20px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; opacity: 0.88; background-color: rgb(125, 122, 128); color: rgb(255, 236, 153); transition-property: all; transition-duration: 0s; transition-timing-function: ease; transition-delay: 0s;" />
         </ui:VisualElement>
         <ui:VisualElement style="width: auto; flex-grow: 1;" />
     </ui:VisualElement>
     <ui:VisualElement style="flex-grow: 1;" />
+    <ui:VisualElement style="height: 30%;" />
 </ui:UXML>

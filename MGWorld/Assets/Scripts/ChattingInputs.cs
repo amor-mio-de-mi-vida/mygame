@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 namespace MyGame
 {
     [RequireComponent(typeof(PlayerInputHandler))]
-    public class ChattingManager : MonoBehaviour
+    public class ChattingInputs : MonoBehaviour
     {
         bool m_Chattable = false;
         bool m_Chatting = false;
@@ -19,7 +19,6 @@ namespace MyGame
         {
             m_RootVisualElement = GetComponent<UIDocument>().rootVisualElement;
             m_RootVisualElement.style.display = DisplayStyle.None;
-            m_Dialog_Name = m_RootVisualElement.Query<Label>("Name");
             m_InputHandler = GetComponent<PlayerInputHandler>();
             EventManager.AddListener<ChatEvent>(OnChat);
             EventManager.AddListener<ChatOverEvent>(OnChatOver);
@@ -27,7 +26,7 @@ namespace MyGame
 
         void start()
         {
-            
+
         }
 
         // Update is called once per frame
@@ -47,7 +46,6 @@ namespace MyGame
                 {
                     m_RootVisualElement.style.display = DisplayStyle.Flex;
                     m_Chatting = true;
-                    m_Dialog_Name.text = m_Name;
                 }
             }
         }
