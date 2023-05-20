@@ -11,9 +11,17 @@ namespace MyGame
         public static ChatOverEvent ChatOverEvent = new ChatOverEvent();
     }
 
+    public enum ChatType
+    {
+        Read,
+        Options,
+        Input
+    }
+
     public class ChatEvent : GameEvent
     {
         public string Name;
+        public ChatType Type;
     }
 
     public class ChatOverEvent : GameEvent

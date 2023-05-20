@@ -9,6 +9,7 @@ namespace MyGame
 
         [Header("Movement")] [Tooltip("Max movement speed when grounded (when not sprinting)")]
         public float MaxSpeedOnGround = 10f;
+        public bool CanMove = true;
 
         CharacterController m_Controller;
         PlayerInputHandler m_InputHandler;
@@ -24,7 +25,10 @@ namespace MyGame
 
         void Update()
         {
-            m_Controller.Move(m_InputHandler.GetMoveInput() * MaxSpeedOnGround * Time.deltaTime);
+            if (CanMove)
+            {
+                m_Controller.Move(m_InputHandler.GetMoveInput() * MaxSpeedOnGround * Time.deltaTime);
+            }
         }
 
         void OnTriggerEnter(Collider collider) {
@@ -32,6 +36,7 @@ namespace MyGame
             {
                 ChatEvent evt = Events.ChatEvent;
                 evt.Name = collider.gameObject.name;
+                evt.Type = ChatType.Options;
                 EventManager.Broadcast(evt);
             }
         }

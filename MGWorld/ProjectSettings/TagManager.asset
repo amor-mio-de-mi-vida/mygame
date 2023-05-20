@@ -7,6 +7,7 @@ TagManager:
   - NPC
   - ChatButton
   - NPCName
+  - P
   layers:
   - Default
   - TransparentFX

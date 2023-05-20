@@ -14,6 +14,8 @@ namespace MyGame
         PlayerInputHandler m_InputHandler;
         VisualElement m_RootVisualElement;
         Label m_Dialog_Name;
+        GameObject m_Player;
+        PlayerCharacterController m_PlayerCharacterController;
         // Start is called before the first frame update
         void Awake()
         {
@@ -23,6 +25,9 @@ namespace MyGame
             m_InputHandler = GetComponent<PlayerInputHandler>();
             EventManager.AddListener<ChatEvent>(OnChat);
             EventManager.AddListener<ChatOverEvent>(OnChatOver);
+
+            m_Player = GameObject.FindWithTag("P");
+            m_PlayerCharacterController = m_Player.GetComponent<PlayerCharacterController>();
         }
 
         void start()
@@ -39,6 +44,7 @@ namespace MyGame
                 {
                     m_RootVisualElement.style.display = DisplayStyle.None;
                     m_Chatting = false;
+                    m_PlayerCharacterController.CanMove = true;
                 }
             }
             else if (m_Chattable)
@@ -47,6 +53,7 @@ namespace MyGame
                 {
                     m_RootVisualElement.style.display = DisplayStyle.Flex;
                     m_Chatting = true;
+                    m_PlayerCharacterController.CanMove = false;
                     m_Dialog_Name.text = m_Name;
                 }
             }
@@ -64,6 +71,7 @@ namespace MyGame
             {
                 m_RootVisualElement.style.display = DisplayStyle.None;
                 m_Chatting = false;
+                m_PlayerCharacterController.CanMove = true;
             }
             m_Chattable = false;
         }

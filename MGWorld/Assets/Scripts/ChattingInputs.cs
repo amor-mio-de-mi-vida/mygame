@@ -11,6 +11,7 @@ namespace MyGame
         bool m_Chattable = false;
         bool m_Chatting = false;
         string m_Name;
+        ChatType m_ChatType;
         PlayerInputHandler m_InputHandler;
         VisualElement m_RootVisualElement;
         TextField m_Input;
@@ -47,8 +48,11 @@ namespace MyGame
             {
                 if (m_InputHandler.GetChat())
                 {
-                    m_RootVisualElement.style.display = DisplayStyle.Flex;
-                    m_Chatting = true;
+                    if (m_ChatType == ChatType.Input)
+                    {
+                        m_RootVisualElement.style.display = DisplayStyle.Flex;
+                        m_Chatting = true;
+                    }
                 }
             }
         }
@@ -57,6 +61,7 @@ namespace MyGame
         {
             m_Chattable = true;
             m_Name = evt.Name;
+            m_ChatType = evt.Type;
         }
 
         void OnChatOver(ChatOverEvent evt)
