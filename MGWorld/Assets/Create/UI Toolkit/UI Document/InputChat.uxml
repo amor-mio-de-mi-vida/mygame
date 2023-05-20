@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Create/UI%20Toolkit/UI%20Document/Chat.uss?fileID=7433441132597879392&amp;guid=ae00cf3c4049bab4093f68ff5cb7028e&amp;type=3#Chat" />
+    <ui:VisualElement style="height: 30%;" />
+    <ui:VisualElement style="height: 10%; flex-direction: row;">
+        <ui:VisualElement style="width: 10%;" />
+        <ui:VisualElement style="width: 80%;">
+            <ui:TextField picking-mode="Ignore" label="Text Field" value="filler text" text="filler text" class="chat" />
+        </ui:VisualElement>
+        <ui:VisualElement style="width: auto; flex-grow: 1;" />
+    </ui:VisualElement>
+    <ui:VisualElement style="flex-grow: 1;" />
+</ui:UXML>

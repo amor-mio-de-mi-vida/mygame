@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="height: auto; flex-basis: 60%;" />
+    <ui:VisualElement style="height: auto; flex-basis: 10%; flex-direction: row;">
+        <ui:VisualElement style="flex-direction: row; flex-basis: 25%;" />
+        <ui:VisualElement style="flex-direction: row; flex-basis: 50%;" />
+        <ui:VisualElement style="flex-direction: row; flex-grow: 1;" />
+    </ui:VisualElement>
+    <ui:VisualElement style="flex-grow: 1;" />
+</ui:UXML>
