@@ -233,38 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1895c6eb011e00b4eadc11a251bad506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerCamera: {fileID: 8386369627004752888}
-  AudioSource: {fileID: 0}
-  GravityDownForce: 20
-  GroundCheckLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  GroundCheckDistance: 0.05
   MaxSpeedOnGround: 10
-  MovementSharpnessOnGround: 15
-  MaxSpeedCrouchedRatio: 0.5
-  MaxSpeedInAir: 10
-  AccelerationSpeedInAir: 25
-  SprintSpeedModifier: 2
-  KillHeight: -50
-  RotationSpeed: 200
-  AimingRotationMultiplier: 0.4
-  JumpForce: 9
-  CameraHeightRatio: 0.9
-  CapsuleHeightStanding: 1.8
-  CapsuleHeightCrouching: 0.9
-  CrouchingSharpness: 10
-  FootstepSfxFrequency: 1
-  FootstepSfxFrequencyWhileSprinting: 1
-  FootstepSfx: {fileID: 0}
-  JumpSfx: {fileID: 0}
-  LandSfx: {fileID: 0}
-  FallDamageSfx: {fileID: 0}
-  RecievesFallDamage: 0
-  MinSpeedForFallDamage: 10
-  MaxSpeedForFallDamage: 30
-  FallDamageAtMinSpeed: 10
-  FallDamageAtMaxSpeed: 50
 --- !u!136 &8657856038827505336
 CapsuleCollider:
   m_ObjectHideFlags: 0
