@@ -13,9 +13,14 @@ namespace MyGame
     {
 
         [Header("Movement")] [Tooltip("Max movement speed when grounded (when not sprinting)")]
+        public Camera PlayerCamera;
         public float MaxSpeedOnGround = 10f;
         public bool CanMove = true;
         public int MaxChatCount = 6;
+        [Header("Rotation")] [Tooltip("Rotation speed for moving the camera")]
+        public float RotationSpeed = 200f;
+        [Range(0.1f, 1f)] [Tooltip("Rotation speed multiplier when aiming")]
+        public float RotationMultiplier = 1f;
 
         CharacterController m_Controller;
         PlayerInputHandler m_InputHandler;
@@ -32,6 +37,10 @@ namespace MyGame
         public string remoteFileBackPath = "/root/Muse/bot/response.txt";
         public string serverCommand = "python3 test.py";
 
+        float smooth = 5.0f;
+        float tiltAngle = 60.0f;
+        float m_CameraVerticalAngle = 0f;
+
         void Start()
         {
             // fetch components on the same gameObject
@@ -41,14 +50,22 @@ namespace MyGame
 
             EventManager.AddListener<ChatBackEvent>(OnChatBack);
 
-            // Connect("呃", "请你写一篇一百字的作文！");
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;            
         }
 
         void Update()
         {
             if (CanMove)
             {
-                m_Controller.Move(m_InputHandler.GetMoveInput() * MaxSpeedOnGround * Time.deltaTime);
+                m_Controller.Move(transform.TransformVector(m_InputHandler.GetMoveInput()) * MaxSpeedOnGround * Time.deltaTime);
+
+                transform.Rotate(
+                    new Vector3(0f, (m_InputHandler.GetLookInputsHorizontal() * RotationSpeed * RotationMultiplier),
+                        0f), Space.Self);
+                m_CameraVerticalAngle += m_InputHandler.GetLookInputsVertical() * RotationSpeed * RotationMultiplier;
+                m_CameraVerticalAngle = Mathf.Clamp(m_CameraVerticalAngle, -89f, 89f);
+                PlayerCamera.transform.localEulerAngles = new Vector3(m_CameraVerticalAngle, 0, 0);
             }
 
             if (m_Chatting)
@@ -162,6 +179,8 @@ namespace MyGame
             EventManager.Broadcast(evt);
             CanMove = false;
             m_Chatting = true;
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;    
         }
 
         private void ChatOver()
@@ -171,6 +190,8 @@ namespace MyGame
             EventManager.Broadcast(evt);
             CanMove = true;
             m_Chatting = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;    
         }
 
         private void Approach(string name)
