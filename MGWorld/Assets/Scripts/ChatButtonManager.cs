@@ -28,8 +28,8 @@ namespace MyGame
                 }
                 
             }
-            EventManager.AddListener<ChatEvent>(OnChat);
-            EventManager.AddListener<ChatOverEvent>(OnChatOver);
+            EventManager.AddListener<ApproachEvent>(OnApproach);
+            EventManager.AddListener<ApproachOverEvent>(OnApproachOver);
         }
 
         void start()
@@ -42,7 +42,7 @@ namespace MyGame
 
         }
 
-        void OnChat(ChatEvent evt)
+        void OnApproach(ApproachEvent evt)
         {
             if (evt.Name == gameObject.name)
             {
@@ -50,7 +50,7 @@ namespace MyGame
             }
         }
 
-        void OnChatOver(ChatOverEvent evt)
+        void OnApproachOver(ApproachOverEvent evt)
         {
             if (evt.Name == gameObject.name)
             {
@@ -60,8 +60,8 @@ namespace MyGame
 
         void OnDestroy()
         {
-            EventManager.RemoveListener<ChatEvent>(OnChat);
-            EventManager.RemoveListener<ChatOverEvent>(OnChatOver);
+            EventManager.RemoveListener<ApproachEvent>(OnApproach);
+            EventManager.RemoveListener<ApproachOverEvent>(OnApproachOver);
         }
     }
 }

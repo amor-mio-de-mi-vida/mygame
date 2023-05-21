@@ -1,9 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Create/UI%20Toolkit/UI%20Document/Chat.uss?fileID=7433441132597879392&amp;guid=ae00cf3c4049bab4093f68ff5cb7028e&amp;type=3#Chat" />
     <ui:TextField picking-mode="Ignore" label="喵喵喵" value="filler text" text="喵喵喵" is-delayed="false" readonly="false" style="height: 40%; width: auto; margin-left: 30px; margin-right: 30px; margin-bottom: 30px; flex-direction: column; position: relative; top: 239px; right: auto; align-items: stretch; justify-content: flex-start; left: 0; margin-top: 0; flex-basis: auto; -unity-font: initial; -unity-text-align: middle-center; display: none;" />
     <ui:VisualElement style="flex-grow: 1; padding-left: 2%; padding-right: 2%; padding-top: 2%; padding-bottom: 2%;">
         <ui:VisualElement style="height: 10%;" />
-        <ui:VisualElement name="VisualElement" style="height: 40%;" />
-        <ui:VisualElement name="VisualElement" style="flex-grow: 1; padding-left: 2%; padding-right: 2%; padding-top: 2%; padding-bottom: 2%; background-color: rgb(125, 122, 128); opacity: 0.88; border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px;">
+        <ui:VisualElement style="height: 40%;" />
+        <ui:VisualElement name="Panel" class="ChatPanel">
             <ui:VisualElement style="height: 25%;">
                 <ui:Label text="喵喵喵" display-tooltip-when-elided="true" name="Name" style="-unity-text-align: middle-center; font-size: 50px; color: rgb(255, 236, 153); padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; -unity-font: url(&apos;project://database/Assets/Art/Font/WMBUF76W2JRGHMZ5X609XXA7XYC7NM2F.TTF?fileID=12800000&amp;guid=9adfd99948638a8409ab1cf42fa7eb18&amp;type=3#WMBUF76W2JRGHMZ5X609XXA7XYC7NM2F&apos;);" />
                 <ui:Label text="会说话的小猫咪" display-tooltip-when-elided="true" name="SubName" style="font-size: 30px; color: rgb(255, 236, 153); -unity-text-align: middle-center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; -unity-font: url(&apos;project://database/Assets/Art/Font/WMBUF76W2JRGHMZ5X609XXA7XYC7NM2F.TTF?fileID=12800000&amp;guid=9adfd99948638a8409ab1cf42fa7eb18&amp;type=3#WMBUF76W2JRGHMZ5X609XXA7XYC7NM2F&apos;);" />

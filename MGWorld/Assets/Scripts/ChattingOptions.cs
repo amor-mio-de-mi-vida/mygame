@@ -8,9 +8,8 @@ namespace MyGame
     [RequireComponent(typeof(PlayerInputHandler))]
     public class ChattingOptions : MonoBehaviour
     {
-        bool m_Chattable = false;
-        bool m_Chatting = false;
         string m_Name;
+        ChatType m_ChatType;
         PlayerInputHandler m_InputHandler;
         VisualElement m_RootVisualElement;
         Button m_Option1;
@@ -38,38 +37,24 @@ namespace MyGame
         // Update is called once per frame
         void Update()
         {
-            if (m_Chatting)
-            {
-                if (m_InputHandler.GetChat())
-                {
-                    m_RootVisualElement.style.display = DisplayStyle.None;
-                    m_Chatting = false;
-                }
-            }
-            else if (m_Chattable)
-            {
-                if (m_InputHandler.GetChat())
-                {
-                    m_RootVisualElement.style.display = DisplayStyle.Flex;
-                    m_Chatting = true;
-                }
-            }
+
         }
 
         void OnChat(ChatEvent evt)
         {
-            m_Chattable = true;
-            m_Name = evt.Name;
+            if (evt.Type == ChatType.Options)
+            {
+                m_RootVisualElement.style.display = DisplayStyle.Flex;
+                m_Name = evt.Name;
+                m_ChatType = evt.Type;
+                m_Option1.text = evt.Option1;
+                m_Option2.text = evt.Option2;
+            }
         }
 
         void OnChatOver(ChatOverEvent evt)
         {
-            if (m_Chatting)
-            {
-                m_RootVisualElement.style.display = DisplayStyle.None;
-                m_Chatting = false;
-            }
-            m_Chattable = false;
+            m_RootVisualElement.style.display = DisplayStyle.None;
         }
 
         void OnDestroy()
@@ -78,14 +63,22 @@ namespace MyGame
             EventManager.RemoveListener<ChatOverEvent>(OnChatOver);
         }
 
-        private void ClickOption1(ClickEvent evt)
+        private void ClickOption1(ClickEvent evt1)
         {
-            Debug.Log("Option1 was clicked!");
+            ChatBackEvent evt = Events.ChatBackEvent;
+            evt.Type = ChatType.Options;
+            evt.Option = 1;
+            evt.Chat = m_Option1.text;
+            EventManager.Broadcast(evt);
         }
 
-        private void ClickOption2(ClickEvent evt)
+        private void ClickOption2(ClickEvent evt1)
         {
-            Debug.Log("Option2 was clicked!");
+            ChatBackEvent evt = Events.ChatBackEvent;
+            evt.Type = ChatType.Options;
+            evt.Option = 2;
+            evt.Chat = m_Option2.text;
+            EventManager.Broadcast(evt);
         }
     }
 }
