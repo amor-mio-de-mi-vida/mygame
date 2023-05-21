@@ -265,5 +265,15 @@ namespace MyGame
 
             return false;
         }
+
+        public bool GetSend()
+        {
+            if (CanProcessInput())
+            {
+                return Input.GetButtonDown(GameConstants.k_ButtonSend);
+            }
+
+            return false;
+        }
     }
 }

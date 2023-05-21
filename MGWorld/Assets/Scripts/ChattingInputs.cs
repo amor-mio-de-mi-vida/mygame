@@ -8,8 +8,6 @@ namespace MyGame
     [RequireComponent(typeof(PlayerInputHandler))]
     public class ChattingInputs : MonoBehaviour
     {
-        bool m_Chattable = false;
-        bool m_Chatting = false;
         string m_Name;
         ChatType m_ChatType;
         PlayerInputHandler m_InputHandler;
@@ -36,42 +34,30 @@ namespace MyGame
         // Update is called once per frame
         void Update()
         {
-            if (m_Chatting)
+            if (m_InputHandler.GetSend())
             {
-                if (m_InputHandler.GetChat())
-                {
-                    m_RootVisualElement.style.display = DisplayStyle.None;
-                    m_Chatting = false;
-                }
-            }
-            else if (m_Chattable)
-            {
-                if (m_InputHandler.GetChat())
-                {
-                    if (m_ChatType == ChatType.Input)
-                    {
-                        m_RootVisualElement.style.display = DisplayStyle.Flex;
-                        m_Chatting = true;
-                    }
-                }
+                ChatBackEvent evt = Events.ChatBackEvent;
+                evt.Type = ChatType.Input;
+                evt.Chat = m_Input.value;
+                EventManager.Broadcast(evt);
+                m_Input.value = "";
             }
         }
 
         void OnChat(ChatEvent evt)
         {
-            m_Chattable = true;
-            m_Name = evt.Name;
-            m_ChatType = evt.Type;
+            if (evt.Type == ChatType.Input)
+            {
+                m_RootVisualElement.style.display = DisplayStyle.Flex;
+                m_Name = evt.Name;
+                m_ChatType = evt.Type;
+                m_Input.Focus();
+            }
         }
 
         void OnChatOver(ChatOverEvent evt)
         {
-            if (m_Chatting)
-            {
-                m_RootVisualElement.style.display = DisplayStyle.None;
-                m_Chatting = false;
-            }
-            m_Chattable = false;
+            m_RootVisualElement.style.display = DisplayStyle.None;
         }
 
         void OnDestroy()
@@ -82,7 +68,7 @@ namespace MyGame
 
         private void Input(InputEvent evt)
         {
-            Debug.Log("from " + evt.previousData + " to " + evt.newData);
+            // Debug.Log("from " + evt.previousData + " to " + evt.newData);
         }
     }
 }

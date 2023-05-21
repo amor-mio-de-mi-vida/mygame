@@ -27,5 +27,6 @@
         public const string k_ButtonReload = "Reload";
 
         public const string k_ButtonChat = "Chat";
+        public const string k_ButtonSend = "Send";
     }
 }
