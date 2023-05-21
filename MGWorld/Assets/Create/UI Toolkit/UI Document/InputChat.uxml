@@ -4,7 +4,7 @@
     <ui:VisualElement style="height: 10%; flex-direction: row;">
         <ui:VisualElement style="width: 10%;" />
         <ui:VisualElement style="width: 80%;">
-            <ui:TextField picking-mode="Ignore" label="赫鲁：" value="filler text" name="Input" class="chat" style="color: rgb(0, 0, 0); height: 150%;" />
+            <ui:TextField picking-mode="Ignore" label="赫鲁：" value="filler text" name="Input" class="chat" style="color: rgb(0, 0, 0); height: 150%; -unity-font: url(&apos;project://database/Assets/Art/Font/WMBUF76W2JRGHMZ5X609XXA7XYC7NM2F.TTF?fileID=12800000&amp;guid=9adfd99948638a8409ab1cf42fa7eb18&amp;type=3#WMBUF76W2JRGHMZ5X609XXA7XYC7NM2F&apos;); -unity-font-definition: initial;" />
         </ui:VisualElement>
         <ui:VisualElement style="width: auto; flex-grow: 1;" />
     </ui:VisualElement>

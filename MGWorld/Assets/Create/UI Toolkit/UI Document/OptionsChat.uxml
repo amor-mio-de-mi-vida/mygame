@@ -4,11 +4,11 @@
     <ui:VisualElement style="height: 30%; flex-direction: row;">
         <ui:VisualElement style="width: 10%;" />
         <ui:VisualElement style="width: 35%;">
-            <ui:Button text="坤哥坤哥" display-tooltip-when-elided="true" name="Option1" class="ChattingOptions" />
+            <ui:Button text="坤哥坤哥" display-tooltip-when-elided="true" name="Option1" class="ChattingOptions" style="-unity-font-definition: initial; -unity-font: url(&apos;project://database/Assets/Art/Font/WMBUF76W2JRGHMZ5X609XXA7XYC7NM2F.TTF?fileID=12800000&amp;guid=9adfd99948638a8409ab1cf42fa7eb18&amp;type=3#WMBUF76W2JRGHMZ5X609XXA7XYC7NM2F&apos;);" />
         </ui:VisualElement>
         <ui:VisualElement style="width: 10%;" />
         <ui:VisualElement style="width: 35%;">
-            <ui:Button text="恺哥恺哥" display-tooltip-when-elided="true" name="Option2" class="ChattingOptions" />
+            <ui:Button text="恺哥恺哥" display-tooltip-when-elided="true" name="Option2" class="ChattingOptions" style="-unity-font-definition: initial; -unity-font: url(&apos;project://database/Assets/Art/Font/WMBUF76W2JRGHMZ5X609XXA7XYC7NM2F.TTF?fileID=12800000&amp;guid=9adfd99948638a8409ab1cf42fa7eb18&amp;type=3#WMBUF76W2JRGHMZ5X609XXA7XYC7NM2F&apos;);" />
         </ui:VisualElement>
         <ui:VisualElement style="width: auto; flex-grow: 1;" />
     </ui:VisualElement>
